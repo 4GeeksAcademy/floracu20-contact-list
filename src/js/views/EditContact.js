@@ -10,17 +10,18 @@ const EditContact = () => {
     const [message, setMessage] = useState(null);
 
     useEffect(() => {
+       // actions.getContacts();
       //debug
       console.log("store.contacts:", store.contacts);
       console.log("contactId from URL:", contactId);
 
-
-        const selectedContact = store.contacts.find(c => c.id === contactId); //encuentro el contacto con el id
+        const selectedContact = store.contacts.find(c => c.id === parseInt(contactId)); //encuentro el contacto con el id
     
         if (selectedContact) {
           setContact(selectedContact);  //setteo con el seleccionado
+          console.log("contacto setteado:", contact)
         }
-      }, [store.contacts, contactId]);
+      }, [store.contacts, contactId, actions]);
 
     const handleInputChange = (e) => {
         setContact({
